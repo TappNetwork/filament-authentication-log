@@ -2,8 +2,6 @@
 
 namespace Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
 
-use Filament\Actions;
-use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
 use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource;
 
