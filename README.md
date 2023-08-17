@@ -5,8 +5,8 @@ A Filament plugin for [Laravel Authentication Log](https://github.com/rappasoft/
 This package provides a Filament resource and a relation manager for [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log).
 
 ## Requirements
-- PHP 8.1
-- [Filament 3](https://github.com/laravel-filament/filament)
+- PHP 8.0
+- [Filament 2](https://github.com/laravel-filament/filament)
 
 ## Dependencies
 - [rappasoft/laravel-authentication-log](https://github.com/rappasoft/laravel-authentication-log)
