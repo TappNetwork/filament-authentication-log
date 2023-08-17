@@ -16,11 +16,8 @@ This package provides a Filament resource and a relation manager for [Laravel Au
 You can install the plugin via Composer:
 
 ```bash
-composer require tapp/filament-authentication-log:"^3.0"
+composer require tapp/filament-authentication-log:"^2.0"
 ```
-
-> **Note** 
-> For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-authentication-log/tree/2.x)** branch
 
 You can publish the translations files with:
 
@@ -32,25 +29,6 @@ You can publish the config file with:
 
 ```bash
 php artisan vendor:publish --tag="filament-authentication-log-config"
-```
-
-## Using the Resource
-
-Add this plugin to a panel on `plugins()` method. 
-E.g. in `app/Providers/Filament/AdminPanelProvider.php`:
-
-```php
-use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
- 
-public function panel(Panel $panel): Panel
-{
-    return $panel
-        // ...
-        ->plugins([
-            FilamentAuthenticationLogPlugin::make(),
-            //...
-        ]);
-}
 ```
 
 That's it! Now you can see the Authentication Log resource on left sidebar.
