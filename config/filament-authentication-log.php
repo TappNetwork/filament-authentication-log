@@ -22,4 +22,5 @@ return [
         'direction' => 'desc',
     ],
 
+    'panel_id' => 'admin'
 ];
