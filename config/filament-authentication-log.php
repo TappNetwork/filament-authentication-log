@@ -21,6 +21,4 @@ return [
         'column' => 'login_at',
         'direction' => 'desc',
     ],
-
-    'panel_id' => 'admin'
 ];

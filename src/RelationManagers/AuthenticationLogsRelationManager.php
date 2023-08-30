@@ -2,6 +2,7 @@
 
 namespace Tapp\FilamentAuthenticationLog\RelationManagers;
 
+use Filament\Facades\Filament;
 use Filament\Resources\RelationManagers\RelationManager;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
@@ -34,7 +35,7 @@ class AuthenticationLogsRelationManager extends RelationManager
                             return new HtmlString('&mdash;');
                         }
 
-                        return new HtmlString('<a href="'.route('filament.'.config('filament-authentication-log.panel_id').'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]).'" class="inline-flex items-center justify-center hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 text-sm font-medium filament-tables-link-action">'.class_basename($record->authenticatable::class).'</a>');
+                        return new HtmlString('<a href="'.route('filament.'.Filament::getCurrentPanel()->getId().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]).'" class="inline-flex items-center justify-center hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 text-sm font-medium filament-tables-link-action">'.class_basename($record->authenticatable::class).'</a>');
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('ip_address')
