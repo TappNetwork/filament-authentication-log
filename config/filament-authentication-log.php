@@ -21,5 +21,4 @@ return [
         'column' => 'login_at',
         'direction' => 'desc',
     ],
-
 ];
