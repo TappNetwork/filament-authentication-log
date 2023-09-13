@@ -2,6 +2,18 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.0.2 - 2023-09-13
+
+### What's Changed
+
+- Add disable resource navigation by @howdu in https://github.com/TappNetwork/filament-authentication-log/pull/9
+
+### New Contributors
+
+- @howdu made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/9
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.0.1...v3.0.2
+
 ## v3.0.1 - 2023-08-31
 
 ### What's Changed
