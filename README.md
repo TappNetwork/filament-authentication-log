@@ -19,6 +19,10 @@ You can install the plugin via Composer:
 composer require tapp/filament-authentication-log:"^3.0"
 ```
 
+Follow the configuration instruction for [laravel-authentication-log](https://rappasoft.com/docs/laravel-authentication-log/v1/start/configuration)
+- Publish and run the migrations
+- Add the `AuthenticationLoggable` and `Notifiable` traits to your `User` model
+
 > **Note** 
 > For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-authentication-log/tree/2.x)** branch
 
@@ -55,7 +59,7 @@ public function panel(Panel $panel): Panel
 
 That's it! Now you can see the Authentication Log resource on left sidebar.
 
-### Resource appareance
+### Resource appearance
 
 ![Filament Authentication Log Resource](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/resource01.png)
 
@@ -80,6 +84,6 @@ public static function getRelations(): array
 }
 ```
 
-### Relation manager appareance
+### Relation manager appearance
 
 ![Filament Authentication Log Relation Manager](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/relation_manager.png)
