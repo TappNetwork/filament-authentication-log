@@ -22,6 +22,11 @@ class AuthenticationLogResource extends Resource
 {
     protected static ?string $model = AuthenticationLog::class;
 
+    public static function shouldRegisterNavigation(): bool
+    {
+        return config('filament-authentication-log.navigation.authentication-log.register', true);
+    }
+
     public static function getNavigationIcon(): string
     {
         return config('filament-authentication-log.navigation.authentication-log.icon');
