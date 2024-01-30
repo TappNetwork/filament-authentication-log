@@ -7,5 +7,8 @@ use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource;
 
 class ListAuthenticationLogs extends ListRecords
 {
-    protected static string $resource = AuthenticationLogResource::class;
+    public static function getResource(): string
+    {
+        return config('filament-authentication-log.resources.AutenticationLogResource', AuthenticationLogResource::class);
+    }
 }
