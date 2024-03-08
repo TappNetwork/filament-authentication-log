@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.0.3 - 2024-03-08
+
+### What's Changed
+
+* Use custom resource from config in list page by @howdu in https://github.com/TappNetwork/filament-authentication-log/pull/13
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.0.2...v3.0.3
+
 ## v3.0.2 - 2023-09-13
 
 ### What's Changed
