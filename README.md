@@ -1,22 +1,31 @@
 # Filament Authentication Log
 
+![pint](https://github.com/TappNetwork/filament-authentication-log/actions/workflows/pint.yml/badge.svg)
+
 A Filament plugin for [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log) package.
 
 This package provides a Filament resource and a relation manager for [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log).
 
 ## Requirements
-- PHP 8.1
+- PHP 8.1+
 - [Filament 3](https://github.com/laravel-filament/filament)
 
 ## Dependencies
 - [rappasoft/laravel-authentication-log](https://github.com/rappasoft/laravel-authentication-log)
+
+## Version Compatibility
+
+ Filament | Laravel   | Filament Authentication Log
+:---------|:----------|:---------------------------
+ 2.x      | 9.x/10.x  | 2.x
+ 3.x      | 10.x/11.x | 3.0.x/3.1.x
 
 ## Installation
 
 You can install the plugin via Composer:
 
 ```bash
-composer require tapp/filament-authentication-log:"^3.0"
+composer require tapp/filament-authentication-log:"^3.1"
 ```
 
 Follow the configuration instruction for [laravel-authentication-log](https://rappasoft.com/docs/laravel-authentication-log/v1/start/configuration)

@@ -2,6 +2,18 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.1.0 - 2024-04-08
+
+### What's Changed
+
+* Add Laravel 11 support by @andreia in https://github.com/TappNetwork/filament-authentication-log/pull/17
+
+### New Contributors
+
+* @andreia made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/17
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.0.3...v3.1.0
+
 ## v3.0.3 - 2024-03-08
 
 ### What's Changed
