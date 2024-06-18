@@ -10,6 +10,10 @@ return [
         \App\Models\User::class,
     ],
 
+    'authenticatable' => [
+        'field-to-display' => 'name',
+    ],
+
     'navigation' => [
         'authentication-log' => [
             'register' => true,

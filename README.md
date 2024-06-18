@@ -51,8 +51,8 @@ php artisan vendor:publish --tag="filament-authentication-log-config"
 
 ## Using the Resource
 
-Add this plugin to a panel on `plugins()` method. 
-E.g. in `app/Providers/Filament/AdminPanelProvider.php`:
+Add this plugin to a panel in the `plugins()` method. 
+E.g., in `app/Providers/Filament/AdminPanelProvider.php`:
 
 ```php
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
@@ -62,13 +62,15 @@ public function panel(Panel $panel): Panel
     return $panel
         // ...
         ->plugins([
-            FilamentAuthenticationLogPlugin::make(),
-            //...
+            FilamentAuthenticationLogPlugin::make()
+                // ->panelName('admin') // Optional: specify the panel name if needed
         ]);
 }
 ```
 
 That's it! Now you can see the Authentication Log resource on left sidebar.
+
+This customization `->panelName('admin')` allows for better organization if you have multiple panels, such as Developer and Admin panels, where the `FilamentAuthenticationLogPlugin` is used in one panel but the user resource is available only in another panel.
 
 ### Resource appearance
 
@@ -98,3 +100,26 @@ public static function getRelations(): array
 ### Relation manager appearance
 
 ![Filament Authentication Log Relation Manager](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/relation_manager.png)
+
+### Displaying Authenticatable Names
+
+To display the actual name of the authenticatable user instead of the class name, you can configure the plugin to show a specific field. By default, it will use the `name` field if available. If your model does not have a `name` column, you can add a custom attribute:
+
+In your model:
+
+```php
+public function getNameAttribute(): string
+{
+    return trim($this->first_name . ' ' . $this->last_name);
+}
+```
+
+### Configuration
+
+To specify a custom field to display for the authenticatable user, update the `config/filament-authentication-log.php` configuration file:
+
+```php
+'authenticatable' => [
+    'field-to-display' => 'name', // Change 'name' to your custom field if needed
+],
+```
