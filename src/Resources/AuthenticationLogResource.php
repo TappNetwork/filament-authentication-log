@@ -3,17 +3,17 @@
 namespace Tapp\FilamentAuthenticationLog\Resources;
 
 use Filament\Forms;
-use Filament\Tables;
-use Filament\Forms\Form;
-use Filament\Tables\Table;
-use Illuminate\Support\Str;
-use Filament\Resources\Resource;
-use Illuminate\Support\HtmlString;
-use Filament\Tables\Filters\Filter;
-use Filament\Tables\Columns\TextColumn;
-use Illuminate\Database\Eloquent\Model;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Form;
+use Filament\Resources\Resource;
+use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\HtmlString;
+use Illuminate\Support\Str;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
 use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
@@ -81,11 +81,11 @@ class AuthenticationLogResource extends Resource
 
                         $authenticatableDisplay = $authenticatableFieldToDisplay !== null ? $record->authenticatable->{$authenticatableFieldToDisplay} : class_basename($record->authenticatable::class);
 
-                        if (!$record->authenticatable_id) {
+                        if (! $record->authenticatable_id) {
                             return new HtmlString('&mdash;');
                         }
 
-                        return new HtmlString('<a href="' . route('filament.' . FilamentAuthenticationLogPlugin::get()->getPanelName() . '.resources.' . Str::plural((Str::lower(class_basename($record->authenticatable::class)))) . '.edit', ['record' => $record->authenticatable_id]) . '" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">' . $authenticatableDisplay . '</a>');
+                        return new HtmlString('<a href="'.route('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]).'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
                     })
                     ->sortable(),
                 Tables\Columns\TextColumn::make('ip_address')
