@@ -2,6 +2,19 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.1.1 - 2024-06-25
+
+### What's Changed
+
+* Option to pass custom panelName, showing name of Actual user name instead of Class Name by @abbasmashaddy72 in https://github.com/TappNetwork/filament-authentication-log/pull/15
+* Show custom field on relation manager by @andreia in https://github.com/TappNetwork/filament-authentication-log/pull/18
+
+### New Contributors
+
+* @abbasmashaddy72 made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/15
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.1.0...v3.1.1
+
 ## v3.1.0 - 2024-04-08
 
 ### What's Changed
