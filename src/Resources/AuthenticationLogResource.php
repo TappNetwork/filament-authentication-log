@@ -72,7 +72,14 @@ class AuthenticationLogResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn (Builder $query) => $query->orderBy(config('filament-authentication-log.sort.column'), config('filament-authentication-log.sort.direction')))
+            ->modifyQueryUsing(function (Builder $query) {
+                $query->with('authenticatable')
+                    ->orderBy(
+                        column: config('filament-authentication-log.sort.column', 'login_at'),
+                        direction: config('filament-authentication-log.sort.direction', 'desc')
+                    );
+                }
+            )    
             ->columns([
                 Tables\Columns\TextColumn::make('authenticatable')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.authenticatable'))
