@@ -2,6 +2,19 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.1.2 - 2024-12-26
+
+### What's Changed
+
+* fix: fixed AuthLogResource Table default sort order by @carloeusebi in https://github.com/TappNetwork/filament-authentication-log/pull/21
+* Added it localization by @carloeusebi in https://github.com/TappNetwork/filament-authentication-log/pull/22
+
+### New Contributors
+
+* @carloeusebi made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/21
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.1.1...v3.1.2
+
 ## v3.1.1 - 2024-06-25
 
 ### What's Changed
