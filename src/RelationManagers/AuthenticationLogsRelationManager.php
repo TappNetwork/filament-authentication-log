@@ -26,7 +26,11 @@ class AuthenticationLogsRelationManager extends RelationManager
     public function table(Table $table): Table
     {
         return $table
-            ->modifyQueryUsing(fn (Builder $query) => $query->orderBy(config('filament-authentication-log.sort.column'), config('filament-authentication-log.sort.direction')))
+            ->modifyQueryUsing(fn (Builder $query) => $query->with('authenticatable'))
+            ->defaultSort(
+                config('filament-authentication-log.sort.column', 'login_at'),
+                config('filament-authentication-log.sort.direction', 'desc'),
+            )
             ->columns([
                 Tables\Columns\TextColumn::make('authenticatable')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.authenticatable'))
