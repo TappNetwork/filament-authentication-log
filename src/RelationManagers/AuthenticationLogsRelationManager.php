@@ -32,20 +32,6 @@ class AuthenticationLogsRelationManager extends RelationManager
                 config('filament-authentication-log.sort.direction', 'desc'),
             )
             ->columns([
-                Tables\Columns\TextColumn::make('authenticatable')
-                    ->label(trans('filament-authentication-log::filament-authentication-log.column.authenticatable'))
-                    ->formatStateUsing(function (?string $state, Model $record) {
-                        if (! $record->authenticatable_id) {
-                            return new HtmlString('&mdash;');
-                        }
-
-                        $authenticatableFieldToDisplay = config('filament-authentication-log.authenticatable.field-to-display');
-
-                        $authenticatableDisplay = $authenticatableFieldToDisplay !== null ? $record->authenticatable->{$authenticatableFieldToDisplay} : class_basename($record->authenticatable::class);
-
-                        return new HtmlString('<a href="'.route('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]).'" class="inline-flex items-center justify-center hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 text-sm font-medium filament-tables-link-action">'.$authenticatableDisplay.'</a>');
-                    })
-                    ->sortable(),
                 Tables\Columns\TextColumn::make('ip_address')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.ip_address'))
                     ->searchable()
