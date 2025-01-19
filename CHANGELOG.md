@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v3.1.3 - 2025-01-19
+
+### What's Changed
+
+* fix: fixed lazy loading and sorting in AuthenticationLogsRelationManager by @carloeusebi in https://github.com/TappNetwork/filament-authentication-log/pull/23
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v3.1.2...v3.1.3
+
 ## v3.1.2 - 2024-12-26
 
 ### What's Changed
