@@ -126,7 +126,7 @@ class AuthenticationLogResource extends Resource
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.cleared_by_user'))
                     ->boolean()
                     ->sortable(),
-                //Tables\Columns\TextColumn::make('location'),
+                // Tables\Columns\TextColumn::make('location'),
             ])
             ->actions([
                 //
