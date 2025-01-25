@@ -40,7 +40,7 @@ class AuthenticationLogResource extends Resource
 
     public static function getNavigationGroup(): ?string
     {
-        return __('filament-authentication-log::filament-authentication-log.navigation.group');
+        return config('filament-authentication-log.navigation.authentication-log.group', __('filament-authentication-log::filament-authentication-log.navigation.group'));
     }
 
     public static function getLabel(): string
