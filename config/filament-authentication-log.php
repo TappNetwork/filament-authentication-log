@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    // 'user-resource' => \App\Filament\Resources\UserResource::class,
     'resources' => [
         'AutenticationLogResource' => \Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource::class,
     ],

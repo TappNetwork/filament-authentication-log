@@ -14,6 +14,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Route;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
 use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
@@ -88,8 +89,14 @@ class AuthenticationLogResource extends Resource
                         if (! $record->authenticatable_id) {
                             return new HtmlString('&mdash;');
                         }
+                        $authenticableEditRoute = '#';
+                        if (Route::has('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id])) {
+                            $authenticableEditRoute = route('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]);
+                        }else if (config('filament-authentication-log.user_resource')) {
+                            $authenticableEditRoute = config('filament-authentication-log.user_resource')::getUrl('edit',['record' =>$record->authenticatable_id]);
+                        }
 
-                        return new HtmlString('<a href="'.route('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]).'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
+                        return new HtmlString('<a href="'.$authenticableEditRoute.'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
                     })
                     ->sortable(['authenticatable_id']),
                 Tables\Columns\TextColumn::make('ip_address')
