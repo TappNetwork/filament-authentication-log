@@ -7,7 +7,7 @@ return [
     'navigation.authentication-log.plural-label' => 'Authentication Logs',
 
     'table.heading' => 'Authentication Logs',
-	'table.empty' => 'No authentication logs found' ,
+    'table.empty' => 'No authentication logs found',
 
     'column.authenticatable' => 'Authenticatable',
     'column.ip_address' => 'IP Address',
