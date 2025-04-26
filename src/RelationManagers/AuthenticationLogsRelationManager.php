@@ -64,6 +64,7 @@ class AuthenticationLogsRelationManager extends RelationManager
                     ->boolean()
                     ->sortable(),
             ])
+            ->emptyStateHeading(trans('filament-authentication-log::filament-authentication-log.table.empty'))
             ->filters([
                 //
             ])
