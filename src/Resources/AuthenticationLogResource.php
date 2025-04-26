@@ -12,9 +12,9 @@ use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Route;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
 use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
@@ -96,7 +96,7 @@ class AuthenticationLogResource extends Resource
 
                         if (Route::has($routeName)) {
                             $authenticableEditRoute = route($routeName, ['record' => $record->authenticatable_id]);
-                        } else if (config('filament-authentication-log.user-resource')) {
+                        } elseif (config('filament-authentication-log.user-resource')) {
                             $authenticableEditRoute = self::getCustomUserRoute($record);
                         }
 
@@ -177,8 +177,7 @@ class AuthenticationLogResource extends Resource
         // Check if the resource exists and has an edit page
         if (method_exists($userResource, 'getUrl') &&
             method_exists($userResource, 'hasPage') &&
-            $userResource::hasPage('edit'))
-        {
+            $userResource::hasPage('edit')) {
             $authenticableEditRoute = $userResource::getUrl('edit', ['record' => $record->authenticatable_id]);
         }
 
