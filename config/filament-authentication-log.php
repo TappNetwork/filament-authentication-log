@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    // 'user-resource' => \App\Filament\Resources\UserResource::class,
     'resources' => [
         'AutenticationLogResource' => \Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource::class,
     ],
@@ -19,6 +19,7 @@ return [
             'register' => true,
             'sort' => 1,
             'icon' => 'heroicon-o-shield-check',
+            // 'group' => 'Logins',
         ],
     ],
 
