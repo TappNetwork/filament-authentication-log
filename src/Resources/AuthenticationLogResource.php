@@ -89,11 +89,15 @@ class AuthenticationLogResource extends Resource
                         if (! $record->authenticatable_id) {
                             return new HtmlString('&mdash;');
                         }
+
                         $authenticableEditRoute = '#';
-                        if (Route::has('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id])) {
-                            $authenticableEditRoute = route('filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit', ['record' => $record->authenticatable_id]);
-                        }else if (config('filament-authentication-log.user-resource')) {
-                            $authenticableEditRoute = config('filament-authentication-log.user-resource')::getUrl('edit',['record' =>$record->authenticatable_id]);
+
+                        $routeName = 'filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit';
+
+                        if (Route::has($routeName)) {
+                            $authenticableEditRoute = route($routeName, ['record' => $record->authenticatable_id]);
+                        } else if (config('filament-authentication-log.user-resource')) {
+                            $authenticableEditRoute = self::getCustomUserRoute($record);
                         }
 
                         return new HtmlString('<a href="'.$authenticableEditRoute.'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
@@ -162,6 +166,23 @@ class AuthenticationLogResource extends Resource
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('cleared_by_user', true)),
             ]);
+    }
+
+    protected static function getCustomUserRoute($record)
+    {
+        $authenticableEditRoute = '#';
+
+        $userResource = config('filament-authentication-log.user-resource');
+
+        // Check if the resource exists and has an edit page
+        if (method_exists($userResource, 'getUrl') &&
+            method_exists($userResource, 'hasPage') &&
+            $userResource::hasPage('edit'))
+        {
+            $authenticableEditRoute = $userResource::getUrl('edit', ['record' => $record->authenticatable_id]);
+        }
+
+        return $authenticableEditRoute;
     }
 
     public static function getRelations(): array
