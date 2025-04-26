@@ -2,6 +2,18 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v4.0.1 - 2025-04-26
+
+### What's Changed
+
+* Add Arabic translations and empty state by @alkoumi in https://github.com/TappNetwork/filament-authentication-log/pull/26
+
+### New Contributors
+
+* @alkoumi made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/26
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v4.0.0...v4.0.1
+
 ## v4.0.0 - 2025-03-27
 
 ### What's Changed
