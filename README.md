@@ -123,3 +123,23 @@ To specify a custom field to display for the authenticatable user, update the `c
     'field-to-display' => 'name', // Change 'name' to your custom field if needed
 ],
 ```
+
+### Custom User Resource
+
+If you have a custom user resource in your application that is not automatically detected by the package, you can specify it in your configuration file. This is particularly useful when:
+
+- Your user resource has a non-standard name or location
+- You have multiple panels and the default user resource detection fails
+- You want to link authentication logs to a specific user resource implementation
+
+To configure a custom user resource, add this to your `config/filament-authentication-log.php` file:
+
+```php
+'user-resource' => \App\Filament\Resources\YourCustomUserResource::class,
+```
+
+This configuration allows the authentication log to properly generate edit links to your user records on resource, even when the default user resource detection mechanism cannot find them.
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
