@@ -2,6 +2,19 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v4.0.2 - 2025-04-27
+
+### What's Changed
+
+* customUserResource by @KamranBiglari in https://github.com/TappNetwork/filament-authentication-log/pull/24
+* Update README by @andreia in https://github.com/TappNetwork/filament-authentication-log/pull/30
+
+### New Contributors
+
+* @KamranBiglari made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/24
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v4.0.1...v4.0.2
+
 ## v4.0.1 - 2025-04-26
 
 ### What's Changed
