@@ -40,7 +40,7 @@ class FilamentAuthenticationLogPlugin implements Plugin
 
     public function getPanelName(): ?string
     {
-        return $this->panelName ?? Filament::getCurrentPanel()->getId();
+        return $this->panelName ?? Filament::getCurrentOrDefaultPanel()->getId();
     }
 
     public function panelName(string $name): static
