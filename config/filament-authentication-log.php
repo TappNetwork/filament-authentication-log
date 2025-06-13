@@ -1,7 +1,7 @@
 <?php
 
-use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource;
 use App\Models\User;
+use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource;
 
 return [
     // 'user-resource' => \App\Filament\Resources\UserResource::class,
