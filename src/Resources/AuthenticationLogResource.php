@@ -2,19 +2,17 @@
 
 namespace Tapp\FilamentAuthenticationLog\Resources;
 
-use Filament\Schemas\Schema;
+use App\Models\User;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\KeyValue;
 use Filament\Forms\Components\MorphToSelect;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Components\KeyValue;
-use Filament\Tables\Columns\IconColumn;
-use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
-use App\Models\User;
-use Filament\Forms;
-use Filament\Forms\Components\DatePicker;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -25,7 +23,7 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
-use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
+use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
 
 class AuthenticationLogResource extends Resource
 {
