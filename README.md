@@ -8,31 +8,40 @@ A Filament plugin for [Laravel Authentication Log](https://github.com/rappasoft/
 
 This package provides a Filament resource and a relation manager for [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log).
 
-## Requirements
-- PHP 8.1+
-- [Filament 3](https://github.com/laravel-filament/filament)
-
 ## Dependencies
-- [rappasoft/laravel-authentication-log](https://github.com/rappasoft/laravel-authentication-log)
+- [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log)
+
+Follow the configuration instructions for [laravel-authentication-log](https://rappasoft.com/docs/laravel-authentication-log/v1/start/configuration)
+- Publish and run the migrations
+- Add the `AuthenticationLoggable` and `Notifiable` traits to your `User` model
 
 ## Version Compatibility
 
- Filament | Laravel   | Filament Authentication Log
-:---------|:----------|:---------------------------
- 2.x      | 9.x/10.x  | 2.x
- 3.x      | 10.x/11.x | 3.0.x/3.1.x
+ Filament | Laravel   | Laravel Authentication Log   | Filament Authentication Log
+:---------|:----------|:-----------------------------|:---------------------------
+ 2.x      | 9.x/10.x  | 3.x                          | 2.x
+ 3.x      | 10.x/11.x | 4.x                          | 3.0.x/3.1.x
+ 3.x      | 12.x      | 5.x                          | 4.x
+ 4.x      | 12.x      | 5.x                          | 5.x
 
 ## Installation
 
-You can install the plugin via Composer:
+You can install the plugin via Composer.
+
+> [!IMPORTANT]
+> Please check the **Filament Authentication Log** plugin version you should use in the **Version Compatibility** table above.
+
+### For Filament 3
 
 ```bash
 composer require tapp/filament-authentication-log:"^3.1"
 ```
 
-Follow the configuration instruction for [laravel-authentication-log](https://rappasoft.com/docs/laravel-authentication-log/v1/start/configuration)
-- Publish and run the migrations
-- Add the `AuthenticationLoggable` and `Notifiable` traits to your `User` model
+### For Filament 4
+
+```bash
+composer require tapp/filament-authentication-log:"^5.0"
+```
 
 > **Note** 
 > For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-authentication-log/tree/2.x)** branch

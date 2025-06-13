@@ -3,7 +3,7 @@
 namespace Tapp\FilamentAuthenticationLog\RelationManagers;
 
 use Filament\Resources\RelationManagers\RelationManager;
-use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -29,11 +29,11 @@ class AuthenticationLogsRelationManager extends RelationManager
                 config('filament-authentication-log.sort.direction', 'desc'),
             )
             ->columns([
-                Tables\Columns\TextColumn::make('ip_address')
+                TextColumn::make('ip_address')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.ip_address'))
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_agent')
+                TextColumn::make('user_agent')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.user_agent'))
                     ->searchable()
                     ->sortable()
@@ -47,19 +47,19 @@ class AuthenticationLogsRelationManager extends RelationManager
 
                         return $state;
                     }),
-                Tables\Columns\TextColumn::make('login_at')
+                TextColumn::make('login_at')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.login_at'))
                     ->since()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('login_successful')
+                IconColumn::make('login_successful')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.login_successful'))
                     ->boolean()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('logout_at')
+                TextColumn::make('logout_at')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.logout_at'))
                     ->since()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('cleared_by_user')
+                IconColumn::make('cleared_by_user')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.cleared_by_user'))
                     ->boolean()
                     ->sortable(),
@@ -71,10 +71,10 @@ class AuthenticationLogsRelationManager extends RelationManager
             ->headerActions([
                 //
             ])
-            ->actions([
+            ->recordActions([
                 //
             ])
-            ->bulkActions([
+            ->toolbarActions([
                 //
             ]);
     }

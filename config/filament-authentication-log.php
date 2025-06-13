@@ -1,13 +1,16 @@
 <?php
 
+use App\Models\User;
+use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource;
+
 return [
     // 'user-resource' => \App\Filament\Resources\UserResource::class,
     'resources' => [
-        'AutenticationLogResource' => \Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource::class,
+        'AutenticationLogResource' => AuthenticationLogResource::class,
     ],
 
     'authenticable-resources' => [
-        \App\Models\User::class,
+        User::class,
     ],
 
     'authenticatable' => [

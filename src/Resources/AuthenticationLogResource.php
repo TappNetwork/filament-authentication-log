@@ -2,11 +2,17 @@
 
 namespace Tapp\FilamentAuthenticationLog\Resources;
 
-use Filament\Forms;
+use App\Models\User;
 use Filament\Forms\Components\DatePicker;
-use Filament\Forms\Form;
+use Filament\Forms\Components\DateTimePicker;
+use Filament\Forms\Components\KeyValue;
+use Filament\Forms\Components\MorphToSelect;
+use Filament\Forms\Components\TextInput;
+use Filament\Forms\Components\Toggle;
 use Filament\Resources\Resource;
+use Filament\Schemas\Schema;
 use Filament\Tables;
+use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
@@ -17,7 +23,7 @@ use Illuminate\Support\HtmlString;
 use Illuminate\Support\Str;
 use Rappasoft\LaravelAuthenticationLog\Models\AuthenticationLog;
 use Tapp\FilamentAuthenticationLog\FilamentAuthenticationLogPlugin;
-use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages;
+use Tapp\FilamentAuthenticationLog\Resources\AuthenticationLogResource\Pages\ListAuthenticationLogs;
 
 class AuthenticationLogResource extends Resource
 {
@@ -53,20 +59,20 @@ class AuthenticationLogResource extends Resource
         return __('filament-authentication-log::filament-authentication-log.navigation.authentication-log.plural-label');
     }
 
-    public static function form(Form $form): Form
+    public static function form(Schema $schema): Schema
     {
-        return $form
-            ->schema([
-                Forms\Components\MorphToSelect::make('authenticable')
+        return $schema
+            ->components([
+                MorphToSelect::make('authenticable')
                     ->types(self::authenticableResources())
                     ->required(),
-                Forms\Components\TextInput::make('Ip Address'),
-                Forms\Components\TextInput::make('User Agent'),
-                Forms\Components\DateTimePicker::make('Login At'),
-                Forms\Components\Toggle::make('Login Successful'),
-                Forms\Components\DateTimePicker::make('Logout At'),
-                Forms\Components\Toggle::make('Cleared By User'),
-                Forms\Components\KeyValue::make('Location'),
+                TextInput::make('Ip Address'),
+                TextInput::make('User Agent'),
+                DateTimePicker::make('Login At'),
+                Toggle::make('Login Successful'),
+                DateTimePicker::make('Logout At'),
+                Toggle::make('Cleared By User'),
+                KeyValue::make('Location'),
             ]);
     }
 
@@ -79,7 +85,7 @@ class AuthenticationLogResource extends Resource
                 config('filament-authentication-log.sort.direction'),
             )
             ->columns([
-                Tables\Columns\TextColumn::make('authenticatable')
+                TextColumn::make('authenticatable')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.authenticatable'))
                     ->formatStateUsing(function (?string $state, Model $record) {
                         $authenticatableFieldToDisplay = config('filament-authentication-log.authenticatable.field-to-display');
@@ -103,11 +109,11 @@ class AuthenticationLogResource extends Resource
                         return new HtmlString('<a href="'.$authenticableEditRoute.'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
                     })
                     ->sortable(['authenticatable_id']),
-                Tables\Columns\TextColumn::make('ip_address')
+                TextColumn::make('ip_address')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.ip_address'))
                     ->searchable()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('user_agent')
+                TextColumn::make('user_agent')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.user_agent'))
                     ->searchable()
                     ->sortable()
@@ -121,25 +127,25 @@ class AuthenticationLogResource extends Resource
 
                         return $state;
                     }),
-                Tables\Columns\TextColumn::make('login_at')
+                TextColumn::make('login_at')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.login_at'))
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('login_successful')
+                IconColumn::make('login_successful')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.login_successful'))
                     ->boolean()
                     ->sortable(),
-                Tables\Columns\TextColumn::make('logout_at')
+                TextColumn::make('logout_at')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.logout_at'))
                     ->dateTime()
                     ->sortable(),
-                Tables\Columns\IconColumn::make('cleared_by_user')
+                IconColumn::make('cleared_by_user')
                     ->label(trans('filament-authentication-log::filament-authentication-log.column.cleared_by_user'))
                     ->boolean()
                     ->sortable(),
                 // Tables\Columns\TextColumn::make('location'),
             ])
-            ->actions([
+            ->recordActions([
                 //
             ])
             ->filters([
@@ -147,7 +153,7 @@ class AuthenticationLogResource extends Resource
                     ->toggle()
                     ->query(fn (Builder $query): Builder => $query->where('login_successful', true)),
                 Filter::make('login_at')
-                    ->form([
+                    ->schema([
                         DatePicker::make('login_from'),
                         DatePicker::make('login_until'),
                     ])
@@ -194,7 +200,7 @@ class AuthenticationLogResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListAuthenticationLogs::route('/'),
+            'index' => ListAuthenticationLogs::route('/'),
         ];
     }
 
@@ -208,7 +214,7 @@ class AuthenticationLogResource extends Resource
     public static function authenticableResources(): array
     {
         return config('filament-authentication-log.authenticable-resources', [
-            \App\Models\User::class,
+            User::class,
         ]);
     }
 }
