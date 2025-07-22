@@ -2,6 +2,19 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v4.0.3 - 2025-07-22
+
+### What's Changed
+
+* Update README with instructions for Filament 4 support by @andreia in https://github.com/TappNetwork/filament-authentication-log/pull/32
+* Add authentication log localization in Portuguese by @samuelterra22 in https://github.com/TappNetwork/filament-authentication-log/pull/38
+
+### New Contributors
+
+* @samuelterra22 made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/38
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v4.0.2...v4.0.3
+
 ## v5.0.0 - 2025-06-13
 
 ### What's Changed
