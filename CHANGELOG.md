@@ -2,6 +2,14 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v5.0.1 - 2025-09-01
+
+### What's Changed
+
+* Update min stability to stable in composer.json by @howdu in https://github.com/TappNetwork/filament-authentication-log/pull/40
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v5.0.0...v5.0.1
+
 ## v4.0.3 - 2025-07-22
 
 ### What's Changed
