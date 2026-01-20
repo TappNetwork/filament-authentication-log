@@ -18,34 +18,28 @@ Follow the configuration instructions for [laravel-authentication-log](https://r
 
 ## Version Compatibility
 
- Filament | Laravel   | Laravel Authentication Log   | Filament Authentication Log
-:---------|:----------|:-----------------------------|:---------------------------
- 2.x      | 9.x/10.x  | 3.x                          | 2.x
- 3.x      | 10.x/11.x | 4.x                          | 3.0.x/3.1.x
- 3.x      | 12.x      | 5.x                          | 4.x
- 4.x/5.x  | 12.x      | 5.x                          | 5.x
+ Filament | Laravel   | Laravel Authentication Log   | Filament Authentication Log | Documentation
+:---------|:----------|:-----------------------------|:----------------------------|:--------------
+ 2.x      | 9.x/10.x  | 3.x                          | 2.x                         | [Check the docs](https://github.com/TappNetwork/filament-authentication-log/tree/2.x)
+ 3.x      | 10.x/11.x | 4.x                          | 3.x                         | Current
+ 3.x      | 12.x      | 5.x                          | 4.x                         | Current
+ 4.x/5.x  | 12.x      | 5.x                          | 5.x                         | [Check the docs](https://github.com/TappNetwork/filament-authentication-log/tree/4.x)
 
 ## Installation
-
-You can install the plugin via Composer.
 
 > [!IMPORTANT]
 > Please check the **Filament Authentication Log** plugin version you should use in the **Version Compatibility** table above.
 
-### For Filament 3
+> [!NOTE]
+> For **Filament 4.x/5.x** check the **[4.x](https://github.com//TappNetwork/filament-authentication-log/tree/4.x)** branch
+>
+> For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-authentication-log/tree/2.x)** branch
+
+You can install the plugin via Composer:
 
 ```bash
 composer require tapp/filament-authentication-log:"^3.1"
 ```
-
-### For Filament 4
-
-```bash
-composer require tapp/filament-authentication-log:"^5.0"
-```
-
-> **Note** 
-> For **Filament 2.x** check the **[2.x](https://github.com//TappNetwork/filament-authentication-log/tree/2.x)** branch
 
 You can publish the translations files with:
 
@@ -84,9 +78,9 @@ This customization `->panelName('admin')` allows for better organization if you 
 
 ### Resource appearance
 
-![Filament Authentication Log Resource](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/resource01.png)
+![Filament Authentication Log Resource](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/3.x/docs/resource01.png)
 
-![Filament Authentication Log Resource with filters and tooltip](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/resource02.png)
+![Filament Authentication Log Resource with filters and tooltip](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/3.x/docs/resource02.png)
 
 
 ## Using the Relation Manager
@@ -109,7 +103,7 @@ public static function getRelations(): array
 
 ### Relation manager appearance
 
-![Filament Authentication Log Relation Manager](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/main/docs/relation_manager.png)
+![Filament Authentication Log Relation Manager](https://raw.githubusercontent.com/TappNetwork/filament-authentication-log/3.x/docs/relation_manager.png)
 
 ### Displaying Authenticatable Names
 
