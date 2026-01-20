@@ -1,7 +1,7 @@
 # Filament Authentication Log
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/tapp/filament-authentication-log.svg?style=flat-square)](https://packagist.org/packages/tapp/filament-authentication-log)
-![Code Style Action Status - Pint](https://github.com/TappNetwork/filament-authentication-log/actions/workflows/pint.yml/badge.svg)
+![Code Style Action Status - Pint](https://github.com/TappNetwork/filament-authentication-log/actions/workflows/fix-php-code-style-issues.yml/badge.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/tapp/filament-authentication-log.svg?style=flat-square)](https://packagist.org/packages/tapp/filament-authentication-log)
 
 A Filament plugin for [Laravel Authentication Log](https://github.com/rappasoft/laravel-authentication-log) package.
