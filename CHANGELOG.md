@@ -2,6 +2,18 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v5.0.5 - 2026-03-18
+
+### What's Changed
+
+* Add German translations by @hofmannsven in https://github.com/TappNetwork/filament-authentication-log/pull/46
+
+### New Contributors
+
+* @hofmannsven made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/46
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v5.0.4...v5.0.5
+
 ## v5.0.4 - 2026-02-02
 
 ### What's Changed
