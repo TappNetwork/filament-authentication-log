@@ -98,7 +98,9 @@ class AuthenticationLogResource extends Resource
 
                         $authenticableEditRoute = '#';
 
-                        $routeName = 'filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit';
+                        $authenticatableResourcePage = config('filament-authentication-log.authenticatable.resource-page', 'edit');
+
+                        $routeName = 'filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.'.$authenticatableResourcePage;
 
                         if (Route::has($routeName)) {
                             $authenticableEditRoute = route($routeName, ['record' => $record->authenticatable_id]);
@@ -180,11 +182,13 @@ class AuthenticationLogResource extends Resource
 
         $userResource = config('filament-authentication-log.user-resource');
 
-        // Check if the resource exists and has an edit page
+        $authenticatableResourcePage = config('filament-authentication-log.authenticatable.resource-page', 'edit');
+
+        // Check if the resource exists and has the configured page
         if (method_exists($userResource, 'getUrl') &&
             method_exists($userResource, 'hasPage') &&
-            $userResource::hasPage('edit')) {
-            $authenticableEditRoute = $userResource::getUrl('edit', ['record' => $record->authenticatable_id]);
+            $userResource::hasPage($authenticatableResourcePage)) {
+            $authenticableEditRoute = $userResource::getUrl($authenticatableResourcePage, ['record' => $record->authenticatable_id]);
         }
 
         return $authenticableEditRoute;
