@@ -119,8 +119,21 @@ To specify a custom field to display for the authenticatable user, update the `c
 ```php
 'authenticatable' => [
     'field-to-display' => 'name', // Change 'name' to your custom field if needed
+    'resource-page' => 'edit', // Change 'edit' to another resource page, such as 'view'
 ],
 ```
+
+### Authenticatable Resource Page
+
+By default, the authenticatable link points to the `edit` page of the detected Filament resource. To link to another resource page, such as `view`, update the `resource-page` configuration value:
+
+```php
+'authenticatable' => [
+    'resource-page' => 'view',
+],
+```
+
+Make sure the target resource defines the configured page name.
 
 ### Custom User Resource
 

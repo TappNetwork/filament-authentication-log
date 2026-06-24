@@ -15,6 +15,7 @@ return [
 
     'authenticatable' => [
         'field-to-display' => null,
+        'resource-page' => 'edit',
     ],
 
     'navigation' => [

@@ -96,17 +96,19 @@ class AuthenticationLogResource extends Resource
                             return new HtmlString('&mdash;');
                         }
 
-                        $authenticableEditRoute = '#';
+                        $authenticatableRoute = '#';
 
-                        $routeName = 'filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.edit';
+                        $authenticatableResourcePage = config('filament-authentication-log.authenticatable.resource-page', 'edit');
+
+                        $routeName = 'filament.'.FilamentAuthenticationLogPlugin::get()->getPanelName().'.resources.'.Str::plural((Str::lower(class_basename($record->authenticatable::class)))).'.'.$authenticatableResourcePage;
 
                         if (Route::has($routeName)) {
-                            $authenticableEditRoute = route($routeName, ['record' => $record->authenticatable_id]);
+                            $authenticatableRoute = route($routeName, ['record' => $record->authenticatable_id]);
                         } elseif (config('filament-authentication-log.user-resource')) {
-                            $authenticableEditRoute = self::getCustomUserRoute($record);
+                            $authenticatableRoute = self::getCustomUserResourceRoute($record);
                         }
 
-                        return new HtmlString('<a href="'.$authenticableEditRoute.'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
+                        return new HtmlString('<a href="'.$authenticatableRoute.'" class="inline-flex items-center justify-center text-sm font-medium hover:underline focus:outline-none focus:underline filament-tables-link text-primary-600 hover:text-primary-500 filament-tables-link-action">'.$authenticatableDisplay.'</a>');
                     })
                     ->sortable(['authenticatable_id']),
                 TextColumn::make('ip_address')
@@ -174,20 +176,22 @@ class AuthenticationLogResource extends Resource
             ]);
     }
 
-    protected static function getCustomUserRoute($record)
+    protected static function getCustomUserResourceRoute($record)
     {
-        $authenticableEditRoute = '#';
+        $authenticatableRoute = '#';
 
         $userResource = config('filament-authentication-log.user-resource');
 
-        // Check if the resource exists and has an edit page
+        $authenticatableResourcePage = config('filament-authentication-log.authenticatable.resource-page', 'edit');
+
+        // Check if the resource exists and has the configured page
         if (method_exists($userResource, 'getUrl') &&
             method_exists($userResource, 'hasPage') &&
-            $userResource::hasPage('edit')) {
-            $authenticableEditRoute = $userResource::getUrl('edit', ['record' => $record->authenticatable_id]);
+            $userResource::hasPage($authenticatableResourcePage)) {
+            $authenticatableRoute = $userResource::getUrl($authenticatableResourcePage, ['record' => $record->authenticatable_id]);
         }
 
-        return $authenticableEditRoute;
+        return $authenticatableRoute;
     }
 
     public static function getRelations(): array
