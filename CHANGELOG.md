@@ -2,6 +2,23 @@
 
 All notable changes to the "Filament Authentication Log" will be documented in this file.
 
+## v5.0.6 - 2026-06-24
+
+### What's Changed
+
+* Drop PHP 8.2 support, add PHP 8.5 by @swilla in https://github.com/TappNetwork/filament-authentication-log/pull/47
+* Use Node 24-compatible GitHub Actions by @swilla in https://github.com/TappNetwork/filament-authentication-log/pull/49
+* Add Laravel 13 CI coverage by @swilla in https://github.com/TappNetwork/filament-authentication-log/pull/50
+* Add chinese translations by @ame1973 in https://github.com/TappNetwork/filament-authentication-log/pull/52
+* Fix Composer test scripts by @swilla in https://github.com/TappNetwork/filament-authentication-log/pull/53
+* Add configurable authenticatable resource page by @ame1973 in https://github.com/TappNetwork/filament-authentication-log/pull/51
+
+### New Contributors
+
+* @ame1973 made their first contribution in https://github.com/TappNetwork/filament-authentication-log/pull/52
+
+**Full Changelog**: https://github.com/TappNetwork/filament-authentication-log/compare/v5.0.5...v5.0.6
+
 ## v5.0.5 - 2026-03-18
 
 ### What's Changed
